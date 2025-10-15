@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юрист - Профессиональное составление жалоб | Кемерово</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5e6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Шапка */
+        header {
+            background: #1a365d;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #4caf50;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4caf50;
+        }
+        
+        /* Баннер */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('img/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #3d8b40;
+        }
+        
+        /* О компании */
+        .about {
+            padding: 80px 0;
+            background: #f5f5e6;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #1a365d;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Преимущества */
+        .advantages {
+            padding: 80px 0;
+            background: #f5f5e6;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .advantage-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .advantage-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .advantage-icon {
+            font-size: 40px;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        
+        /* Услуги */
+        .services {
+            padding: 80px 0;
+            background: #f5f5e6;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            color: #4caf50;
+            margin: 15px 0;
+        }
+        
+        /* Статьи */
+        .articles {
+            padding: 80px 0;
+            background: #f5f5e6;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .article-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .article-content h3 {
+            color: #1a365d;
+            margin-bottom: 10px;
+        }
+        
+        .read-more {
+            display: inline-block;
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* Контакты */
+        .contact {
+            padding: 80px 0;
+            background: #f5f5e6;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info, .contact-form {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+        }
+        
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-link {
+            color: #4caf50;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: #3d8b40;
+            text-decoration: underline;
+        }
+        
+        /* Футер */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #4caf50;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4caf50;
+        }
+        
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Юрист <span>Кемерово</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#advantages">Преимущества</a></li>
+                        <li><a href="#articles">Статьи</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Баннер -->
+    <section class="hero">
+        <div class="container">
+            <h1>Профессиональное составление жалоб и обращений</h1>
+            <p>Эффективное решение юридических проблем через грамотно составленные жалобы в государственные органы и инстанции</p>
+            <a href="#contact" class="btn">Получить консультацию</a>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Профессиональный юрист</strong> с многолетним опытом работы в сфере защиты прав граждан и бизнеса через подачу жалоб и обращений в государственные органы.</p>
+                    <p>Специализируюсь на составлении эффективных жалоб в прокуратуру, суды, Роспотребнадзор, жилищные инспекции и другие контролирующие органы.</p>
+                    <p>Моя миссия — помочь каждому клиенту добиться справедливости через грамотное использование юридических инструментов.</p>
+                    <p>Имею высшее юридическое образование и успешный опыт решения спорных ситуаций в пользу клиентов.</p>
+                </div>
+                <div class="about-image">
+                    <img src="img/2.jpg" alt="Юрист">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <h2 class="section-title">Мои преимущества</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚖️</div>
+                    <h3>Профессионализм</h3>
+                    <p>Глубокое знание законодательства и судебной практики в сфере административных жалоб</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">📝</div>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Каждая жалоба составляется с учетом особенностей конкретной ситуации и требований клиента</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Оперативность</h3>
+                    <p>Подготовка документов в кратчайшие сроки без потери качества</p>
+                </div>
+                <div class="advantage-card">
+                    <div class="advantage-icon">🛡️</div>
+                    <h3>Конфиденциальность</h3>
+                    <p>Полная анонимность и защита персональных данных клиента</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Услуги</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Жалобы в государственные органы</h3>
+                    <p>Составление жалоб в прокуратуру, администрацию, жилищную инспекцию, Роспотребнадзор и другие инстанции с учетом процессуальных требований.</p>
+                    <p class="service-price">от 2 000 руб.</p>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <h3>Исковые заявления</h3>
+                    <p>Подготовка исковых заявлений в суды общей юрисдикции и арбитражные суды по гражданским, административным и хозяйственным спорам.</p>
+                    <p class="service-price">от 3 500 руб.</p>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <h3>Претензионная работа</h3>
+                    <p>Составление претензий юридическим и физическим лицам, ведение досудебного урегулирования споров.</p>
+                    <p class="service-price">от 1 500 руб.</p>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <h3>Консультации</h3>
+                    <p>Юридические консультации по вопросам составления жалоб, перспективам рассмотрения, обжалования действий и бездействия должностных лиц.</p>
+                    <p class="service-price">от 1 000 руб.</p>
+                    <a href="#contact" class="btn">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Статьи -->
+    <section id="articles" class="articles">
+        <div class="container">
+            <h2 class="section-title">Полезные статьи</h2>
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="img/3.jpg" alt="Составление жалоб">
+                    </div>
+                    <div class="article-content">
+                        <h3>Как правильно составить жалобу в государственный орган</h3>
+                        <p>Узнайте о ключевых элементах эффективной жалобы: структура, обязательные реквизиты, доказательная база и сроки рассмотрения.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="img/4.jpg" alt="Защита прав">
+                    </div>
+                    <div class="article-content">
+                        <h3>Куда жаловаться на нарушение прав потребителей</h3>
+                        <p>Обзор инстанций, куда можно обратиться при нарушении прав потребителей, и особенности составления жалоб в каждую из них.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-image">
+                        <img src="img/5.jpg" alt="Суды">
+                    </div>
+                    <div class="article-content">
+                        <h3>Обжалование бездействия должностных лиц</h3>
+                        <p>Пошаговый алгоритм действий при бездействии государственных служащих: от досудебного порядка до обращения в суд.</p>
+                        <a href="#" class="read-more">Читать далее →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Мои контакты</h3>
+                    <div class="contact-details">
+                        <p><strong>Адрес:</strong> г. Кемерово, ул. Красноармейская, д.144</p>
+                        <p><strong>Телефон/WhatsApp:</strong> <a href="tel:+79131241079" class="contact-link">+7 (913) 124-10-79</a></p>
+                        <p><strong>Telegram:</strong> <a href="https://t.me/uBAH42" class="contact-link" target="_blank">@uBAH42</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:boltivec@inbox.ru" class="contact-link">boltivec@inbox.ru</a></p>
+                        <p><strong>Режим работы:</strong> Пн-Пт: 9:00-18:00</p>
+                    </div>
+                    <p>Консультации проводятся по предварительной записи. Возможен выезд к клиенту в пределах Кемерово.</p>
+                </div>
+                <div class="contact-form">
+                    <h3>Оставьте заявку</h3>
+                    <form action="https://formspree.io/f/your-form-id" method="POST">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="email" name="email" placeholder="Ваш email" required>
+                        <input type="tel" name="phone" placeholder="Ваш телефон">
+                        <textarea name="message" placeholder="Опишите вашу проблему" required></textarea>
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Юрист Кемерово</h3>
+                    <p>Профессиональное составление жалоб и обращений в государственные органы для защиты ваших прав.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Услуги</h3>
+                    <ul>
+                        <li><a href="#services">Жалобы в госорганы</a></li>
+                        <li><a href="#services">Исковые заявления</a></li>
+                        <li><a href="#services">Претензионная работа</a></li>
+                        <li><a href="#services">Консультации</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p><a href="tel:+79131241079">+7 (913) 124-10-79</a></p>
+                    <p><a href="mailto:boltivec@inbox.ru">boltivec@inbox.ru</a></p>
+                    <p>г. Кемерово, ул. Красноармейская, д.144</p>
+                    <p><a href="https://t.me/uBAH42" target="_blank">Telegram: @uBAH42</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Юрист Кемерово. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
